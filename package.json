@@ -1,0 +1,15 @@
+{
+  "name": "ccatesting-server",
+  "version": "0.1.0-dev",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher J. Brody <chris@brody.consulting>",
+  "license": "CC-BY-4.0",
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-http-to-https": "^1.1.4"
+  }
+}
