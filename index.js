@@ -19,7 +19,7 @@ const app = express();
 // Certificate
 const privateKey = fs.readFileSync('./mycert/live/ccatesting.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('./mycert/live/ccatesting.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('./mycert/live/ccatesting.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('./localcert/server_cert.pem', 'utf8');
 
 const credentials = {
   key: privateKey,
