@@ -11,5 +11,4 @@ Made with help from code from the following places:
   - https://itnext.io/node-express-letsencrypt-generate-a-free-ssl-certificate-and-run-an-https-server-in-5-minutes-a730fbe528ca
 * https://medium.com/@sevcsik/authentication-using-https-client-certificates-3c9d270e8326
 
-NOTE: certificates in `mycert` are not committed into public repository
-since they are private.
+NOTE: `localcert` and `webcert` directories with private certificates are not committed into this public repository.
