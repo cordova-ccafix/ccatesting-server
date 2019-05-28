@@ -38,7 +38,9 @@ app.use(redirectToHTTPS());
 app.get('/', (req, res) => {
   console.log('got request for /');
   res.send(
-    `<a href="authenticate">Log in using client certificate</a>
+    `<h1>ccatesting.com server</h1>
+<a href="authenticate">Log in using client certificate</a>
+<br/>
 -- end
 `);
 });
@@ -50,16 +52,19 @@ app.get('/authenticate', (req, res) => {
   if (req.client.authorized) {
     return res.send(
       `AUTHENTICATED OK - detected subject: ${cert.subject.CN} issuer: ${cert.issuer.CN}
+<br/>
 -- END
 `);
   } else if (cert.subject) {
     return res.status(401).send(
       `401 NOT AUTHORIZED - CLIENT CERTIFICATE NOT AUTHENTICATED - detected subject: ${cert.subject.CN} issuer: ${cert.issuer.CN}
--- EN
+<br/>
+-- END
 `);
   } else {
     return res.status(401).send(
       `401 NOT AUTHORIZED - NO CLIENT CERTIFICATE DETECTED
+<br/>
 -- END
 `);
   }
