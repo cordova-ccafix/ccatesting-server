@@ -31,7 +31,7 @@ const credentials = {
 
 app.use(redirectToHTTPS());
 
-// app.use(express.static('static'));
+app.use(express.static('static'));
 
 // Based on sample code in:
 // https://medium.com/@sevcsik/authentication-using-https-client-certificates-3c9d270e8326
@@ -40,6 +40,10 @@ app.get('/', (req, res) => {
   res.send(
     `<h1>ccatesting.com server</h1>
 <a href="authenticate">Log in using client certificate</a>
+<br/>
+<a href="alice.p12">download alice.p12</a> - signed by this server
+<br/>
+<a href="bob.p12">download bob.p12</a> - self-signed certificate
 <br/>
 -- end
 `);
