@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
   console.log('got request for /');
   res.send(
     `<a href="authenticate">Log in using client certificate</a>
--- thanks
+-- end
 `);
 });
 
@@ -48,23 +48,21 @@ app.get('/authenticate', (req, res) => {
   const cert = req.connection.getPeerCertificate();
 
   if (req.client.authorized) {
+    return res.send(
+      `AUTHENTICATED OK - detected subject: ${cert.subject.CN} issuer: ${cert.issuer.CN}
+-- END
+`);
+  } else if (cert.subject) {
     return res.status(401).send(
-      `Detected subject: ${cert.subject.CN} issuer: ${cert.issuer.CN} - authorized OK
--- thanks
+      `401 NOT AUTHORIZED - CLIENT CERTIFICATE NOT AUTHENTICATED - detected subject: ${cert.subject.CN} issuer: ${cert.issuer.CN}
+-- EN
+`);
+  } else {
+    return res.status(401).send(
+      `401 NOT AUTHORIZED - NO CLIENT CERTIFICATE DETECTED
+-- END
 `);
   }
-
-  if (cert.subject) {
-    return res.status(401).send(
-      `Detected cert subject: ${cert.subject.CN} issuer: ${cert.issuer.CN} - not authenticated
--- thanks
-`);
-  }
-
-  res.send(
-    `NO CLIENT CERTIFICATE DETECTED
--- thanks
-`);
 });
 
 // Starting both http & https servers
