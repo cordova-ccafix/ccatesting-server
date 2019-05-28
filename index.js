@@ -31,7 +31,7 @@ const credentials = {
 
 app.use(redirectToHTTPS());
 
-app.use(express.static('static'));
+// app.use(express.static('static'));
 
 // Based on sample code in:
 // https://medium.com/@sevcsik/authentication-using-https-client-certificates-3c9d270e8326
