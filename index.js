@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
 <br/>
 <a href="alice.p12">download alice.p12</a> - signed by this server
 <br/>
+<a href="alice.myp12">download alice.myp12</a> - same as alice.p12 for testing, signed by this server
+<br/>
 <a href="bob.p12">download bob.p12</a> - self-signed certificate
 <br/>
 -- end
