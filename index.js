@@ -38,7 +38,10 @@ app.use(express.static('static'));
 app.get('/', (req, res) => {
   console.log('got request for /');
   res.send(
-    `<h1>ccatesting.com server</h1>
+    `<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<font face="Arial" size="+1">
+<h1>ccatesting.com test server</h1>
 <a href="authenticate">Log in using client certificate</a>
 <br/>
 <a href="alice.p12">download alice.p12</a> - signed by this server
