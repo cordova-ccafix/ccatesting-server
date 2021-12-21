@@ -16,6 +16,7 @@ const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
 
 const app = express();
 
+//* **
 // Certificate
 const privateKey = fs.readFileSync('./webcert/live/ccatesting.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('./webcert/live/ccatesting.com/cert.pem', 'utf8');
@@ -28,8 +29,11 @@ const credentials = {
   requestCert: true,
   rejectUnauthorized: false
 };
+// */
 
+//* **
 app.use(redirectToHTTPS());
+// */
 
 app.use(express.static('static'));
 
@@ -81,12 +85,16 @@ app.get('/authenticate', (req, res) => {
 
 // Starting both http & https servers
 const httpServer = http.createServer(app);
+//* **
 const httpsServer = https.createServer(credentials, app);
+// */
 
 httpServer.listen(80, () => {
   console.log('HTTP Server running on port 80');
 });
 
+//* **
 httpsServer.listen(443, () => {
   console.log('HTTPS Server running on port 443');
 });
+// */
